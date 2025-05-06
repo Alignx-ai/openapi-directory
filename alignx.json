@@ -1,0 +1,531 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Alignx Services",
+    "version": "0.1.0"
+  },
+  "servers": [
+    {
+      "url": "/services"
+    }
+  ],
+  "paths": {
+    "/api/v1.0/prompt-engine/templates/generate": {
+      "post": {
+        "tags": [
+          "prompt-engine",
+          "prompt-engine"
+        ],
+        "summary": "Generate Template",
+        "operationId": "generate_template_api_v1_0_prompt_engine_templates_generate_post",
+        "parameters": [
+          {
+            "name": "thread_id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "title": "Thread Id"
+            }
+          },
+          {
+            "name": "template_type",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "$ref": "#/components/schemas/TemplateType",
+              "default": "form"
+            }
+          },
+          {
+            "name": "temperature",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "number",
+              "title": "Temperature"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PromptTemplateGenerate"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true,
+                  "title": "Response Generate Template Api V1 0 Prompt Engine Templates Generate Post"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/prompt-engine/templates/chat-history/{thread_id}": {
+      "get": {
+        "tags": [
+          "prompt-engine",
+          "prompt-engine"
+        ],
+        "summary": "Get Chat History",
+        "description": "Get chat history for a specific thread.",
+        "operationId": "get_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__get",
+        "parameters": [
+          {
+            "name": "thread_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Thread Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+
+                  },
+                  "title": "Response Get Chat History Api V1 0 Prompt Engine Templates Chat History  Thread Id  Get"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "prompt-engine",
+          "prompt-engine"
+        ],
+        "summary": "Clear Chat History",
+        "description": "Clear chat history for a specific thread.",
+        "operationId": "clear_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__delete",
+        "parameters": [
+          {
+            "name": "thread_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Thread Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/evals/evaluate": {
+      "post": {
+        "tags": [
+          "Evaluations"
+        ],
+        "summary": "Evaluate Text",
+        "description": "Evaluate text based on the specified policies or metrics\n\nArgs:\n    request: The FastAPI request object\n    payload: The evaluation payload containing candidate text, reference text, and policies\n    user: The authenticated user information\n    background_tasks: Background tasks runner\n\nReturns:\n    Evaluation results with policy scores and pass/fail status",
+        "operationId": "evaluate_text_api_v1_0_evals_evaluate_post",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvaluateTextRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EvaluateTextResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/evals/policies": {
+      "get": {
+        "tags": [
+          "Evaluations"
+        ],
+        "summary": "Get Available Policies",
+        "description": "Get a list of all available policies and metrics\n\nArgs:\n    token_data: The authenticated user information\n\nReturns:\n    List of available policy names",
+        "operationId": "get_available_policies_api_v1_0_evals_policies_get",
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AvailablePoliciesResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1.0/evals/evaluate_csv": {
+      "post": {
+        "tags": [
+          "Evaluations"
+        ],
+        "summary": "Evaluate Csv Policies",
+        "description": "Evaluate the LLM output from a CSV file based on the selected policies.\n\nArgs:\n    payload: The evaluation payload containing candidate text, reference text, and policies\n    token_data: The authenticated user information\n    background_tasks: Background tasks runner\n\nReturns:\n    Evaluation results for each row in the CSV file",
+        "operationId": "evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "$ref": "#/components/schemas/Body_evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BulkEvaluateTextResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "AvailablePoliciesResponse": {
+        "properties": {
+          "policies": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Policies",
+            "description": "List of available policy/metric names"
+          }
+        },
+        "type": "object",
+        "required": [
+          "policies"
+        ],
+        "title": "AvailablePoliciesResponse",
+        "description": "Response model for available policies/metrics"
+      },
+      "Body_evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post": {
+        "properties": {
+          "file_format": {
+            "$ref": "#/components/schemas/FileFormat"
+          },
+          "s3_url": {
+            "type": "string",
+            "title": "S3 Url"
+          },
+          "file": {
+            "type": "string",
+            "format": "binary",
+            "title": "File"
+          },
+          "policies": {
+            "type": "string",
+            "title": "Policies"
+          },
+          "is_private": {
+            "type": "boolean",
+            "title": "Is Private",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "file_format"
+        ],
+        "title": "Body_evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post"
+      },
+      "BulkEvaluateTextResponse": {
+        "properties": {
+          "file_url": {
+            "type": "string",
+            "title": "File Url",
+            "description": "URL to the processed CSV file"
+          },
+          "results": {
+            "additionalProperties": {
+              "additionalProperties": true,
+              "type": "object"
+            },
+            "type": "object",
+            "title": "Results",
+            "description": "Evaluation results for each row"
+          }
+        },
+        "type": "object",
+        "required": [
+          "file_url",
+          "results"
+        ],
+        "title": "BulkEvaluateTextResponse",
+        "description": "Result model for bulk LLM evaluation"
+      },
+      "EvaluateTextRequest": {
+        "properties": {
+          "value": {
+            "type": "string",
+            "title": "Value",
+            "description": "LLM-generated response"
+          },
+          "reference": {
+            "type": "string",
+            "title": "Reference",
+            "description": "Ground truth or expected response"
+          },
+          "policies": {
+            "items": {
+              "$ref": "#/components/schemas/Policy"
+            },
+            "type": "array",
+            "title": "Policies"
+          }
+        },
+        "type": "object",
+        "required": [
+          "value",
+          "reference"
+        ],
+        "title": "EvaluateTextRequest"
+      },
+      "EvaluateTextResponse": {
+        "properties": {
+          "error": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Error",
+            "description": "Error message if evaluation failed"
+          }
+        },
+        "additionalProperties": true,
+        "type": "object",
+        "title": "EvaluateTextResponse",
+        "description": "Response model for LLM evaluation results"
+      },
+      "FileFormat": {
+        "type": "string",
+        "enum": [
+          "csv",
+          "text"
+        ],
+        "title": "FileFormat"
+      },
+      "HTTPValidationError": {
+        "properties": {
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
+      },
+      "Policy": {
+        "properties": {
+          "title": {
+            "$ref": "#/components/schemas/PolicyTitle",
+            "description": "The policy to evaluate."
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Description"
+          },
+          "threshold": {
+            "type": "number",
+            "title": "Threshold",
+            "default": 0.5
+          }
+        },
+        "type": "object",
+        "required": [
+          "title"
+        ],
+        "title": "Policy"
+      },
+      "PolicyTitle": {
+        "type": "string",
+        "enum": [
+          "Factuality",
+          "Context",
+          "Relevance",
+          "Safety",
+          "Sentiment",
+          "Toxicity",
+          "Privacy",
+          "Sensitivity",
+          "Accessibility",
+          "Engagement",
+          "Transparency",
+          "Error Detection"
+        ],
+        "title": "PolicyTitle"
+      },
+      "PromptTemplateGenerate": {
+        "properties": {
+          "query": {
+            "type": "string",
+            "title": "Query"
+          }
+        },
+        "type": "object",
+        "required": [
+          "query"
+        ],
+        "title": "PromptTemplateGenerate"
+      },
+      "TemplateType": {
+        "type": "string",
+        "enum": [
+          "conversational",
+          "form",
+          "validate"
+        ],
+        "title": "TemplateType",
+        "description": "Enum for different template types."
+      },
+      "ValidationError": {
+        "properties": {
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      }
+    }
+  }
+}
