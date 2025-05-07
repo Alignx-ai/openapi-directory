@@ -2,8 +2,6 @@ openapi: 3.0.0
 info:
   title: Alignx Services
   version: 0.1.0
-servers:
-  - url: /services
 paths:
   /api/v1.0/agents:
     post:
@@ -85,7 +83,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/agents/{agent_id}':
+  /api/v1.0/agents/{agent_id}:
     get:
       tags:
         - Agents
@@ -173,7 +171,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/agents/{agent_id}/activate':
+  /api/v1.0/agents/{agent_id}/activate:
     put:
       tags:
         - Agents
@@ -201,7 +199,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/agents/{agent_id}/deactivate':
+  /api/v1.0/agents/{agent_id}/deactivate:
     put:
       tags:
         - Agents
@@ -229,7 +227,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/agents/{agent_id}/config':
+  /api/v1.0/agents/{agent_id}/config:
     post:
       tags:
         - Agents
@@ -263,7 +261,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/agents/{agent_id}/test-connection':
+  /api/v1.0/agents/{agent_id}/test-connection:
     post:
       tags:
         - Agents
@@ -292,9 +290,7 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
-                title: >-
-                  Response Test Connection Api V1 0 Agents  Agent Id  Test
-                  Connection Post
+                title: Response Test Connection Api V1 0 Agents  Agent Id  Test Connection Post
         '422':
           description: Validation Error
           content:
@@ -401,7 +397,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/templates/{template_id}':
+  /api/v1.0/templates/{template_id}:
     put:
       tags:
         - Prompt Templates
@@ -531,7 +527,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/folders/{folder_id}':
+  /api/v1.0/folders/{folder_id}:
     put:
       tags:
         - Prompt Folders
@@ -594,7 +590,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/folders/{folder_id}/move':
+  /api/v1.0/folders/{folder_id}/move:
     post:
       tags:
         - Prompt Folders
@@ -631,14 +627,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/folders/{folder_id}/templates/{template_id}':
+  /api/v1.0/folders/{folder_id}/templates/{template_id}:
     post:
       tags:
         - Prompt Folders
       summary: Add Template To Folder
       description: Add a template to a folder
-      operationId: >-
-        add_template_to_folder_api_v1_0_folders__folder_id__templates__template_id__post
+      operationId: add_template_to_folder_api_v1_0_folders__folder_id__templates__template_id__post
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -672,8 +667,7 @@ paths:
         - Prompt Folders
       summary: Remove Template From Folder
       description: Remove a template from a folder
-      operationId: >-
-        remove_template_from_folder_api_v1_0_folders__folder_id__templates__template_id__delete
+      operationId: remove_template_from_folder_api_v1_0_folders__folder_id__templates__template_id__delete
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -806,7 +800,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/workflows/{workflow_id}':
+  /api/v1.0/workflows/{workflow_id}:
     get:
       tags:
         - Workflows
@@ -897,7 +891,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/workflows/active/{workflow_id}':
+  /api/v1.0/workflows/active/{workflow_id}:
     get:
       tags:
         - Workflows
@@ -926,7 +920,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/workflows/version/{name}/{version}':
+  /api/v1.0/workflows/version/{name}/{version}:
     get:
       tags:
         - Workflows
@@ -961,7 +955,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/workflows/metrics/{org_id}':
+  /api/v1.0/workflows/metrics/{org_id}:
     get:
       tags:
         - Workflows
@@ -976,16 +970,13 @@ paths:
               schema: {}
       security:
         - OAuth2PasswordBearer: []
-  '/api/v1.0/workflows/{workflow_id}/csv-template':
+  /api/v1.0/workflows/{workflow_id}/csv-template:
     get:
       tags:
         - Workflows
       summary: Generate CSV template for batch workflow execution
-      description: >-
-        Generate a CSV template with headers for variables that can be injected
-        in batch workflow execution
-      operationId: >-
-        generate_workflow_csv_template_api_v1_0_workflows__workflow_id__csv_template_get
+      description: Generate a CSV template with headers for variables that can be injected in batch workflow execution
+      operationId: generate_workflow_csv_template_api_v1_0_workflows__workflow_id__csv_template_get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1004,7 +995,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/workflow-executions/{workflow_id}/exec':
+  /api/v1.0/workflow-executions/{workflow_id}/exec:
     post:
       tags:
         - Workflow-Executions
@@ -1033,14 +1024,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/workflow-executions/{workflow_execution_id}/resume':
+  /api/v1.0/workflow-executions/{workflow_execution_id}/resume:
     put:
       tags:
         - Workflow-Executions
       summary: Resume workflow execution
       description: Resume a workflow execution
-      operationId: >-
-        resume_workflow_api_v1_0_workflow_executions__workflow_execution_id__resume_put
+      operationId: resume_workflow_api_v1_0_workflow_executions__workflow_execution_id__resume_put
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1141,7 +1131,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/workflow-executions/{execution_id}':
+  /api/v1.0/workflow-executions/{execution_id}:
     get:
       tags:
         - Workflow-Executions
@@ -1212,24 +1202,21 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
-                title: >-
-                  Response Generate Template Api V1 0 Prompt Engine Templates
-                  Generate Post
+                title: Response Generate Template Api V1 0 Prompt Engine Templates Generate Post
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/prompt-engine/templates/chat-history/{thread_id}':
+  /api/v1.0/prompt-engine/templates/chat-history/{thread_id}:
     get:
       tags:
         - prompt-engine
         - prompt-engine
       summary: Get Chat History
       description: Get chat history for a specific thread.
-      operationId: >-
-        get_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__get
+      operationId: get_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1247,9 +1234,7 @@ paths:
               schema:
                 type: array
                 items: {}
-                title: >-
-                  Response Get Chat History Api V1 0 Prompt Engine Templates
-                  Chat History  Thread Id  Get
+                title: Response Get Chat History Api V1 0 Prompt Engine Templates Chat History  Thread Id  Get
         '422':
           description: Validation Error
           content:
@@ -1262,8 +1247,7 @@ paths:
         - prompt-engine
       summary: Clear Chat History
       description: Clear chat history for a specific thread.
-      operationId: >-
-        clear_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__delete
+      operationId: clear_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__delete
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1290,10 +1274,8 @@ paths:
       tags:
         - Automated Feature Extraction
       summary: Initiate Workflow
-      description: >-
-        Initiate a new workflow by creating the workflow structure and uploading
-        the dataset.
-
+      description: |-
+        Initiate a new workflow by creating the workflow structure and uploading the dataset.
         This endpoint now only sets up the workflow without executing any steps.
       operationId: initiate_workflow_api_v1_0_afe_post
       requestBody:
@@ -1317,7 +1299,7 @@ paths:
                 $ref: '#/components/schemas/HTTPValidationError'
       security:
         - OAuth2PasswordBearer: []
-  '/api/v1.0/afe/{workflow_id}/next':
+  /api/v1.0/afe/{workflow_id}/next:
     post:
       tags:
         - Automated Feature Extraction
@@ -1348,20 +1330,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/afe/{workflow_id}/steps/{step_number}/validate':
+  /api/v1.0/afe/{workflow_id}/steps/{step_number}/validate:
     post:
       tags:
         - Automated Feature Extraction
       summary: Validate Step
-      description: >-
+      description: |-
         Validate a completed step's results.
-
-        If validated successfully, the next step becomes available for
-        execution.
-
+        If validated successfully, the next step becomes available for execution.
         If validation fails, the step can be retried.
-      operationId: >-
-        validate_step_api_v1_0_afe__workflow_id__steps__step_number__validate_post
+      operationId: validate_step_api_v1_0_afe__workflow_id__steps__step_number__validate_post
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1391,9 +1369,7 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
-                title: >-
-                  Response Validate Step Api V1 0 Afe  Workflow Id  Steps  Step
-                  Number  Validate Post
+                title: Response Validate Step Api V1 0 Afe  Workflow Id  Steps  Step Number  Validate Post
         '422':
           description: Validation Error
           content:
@@ -1440,7 +1416,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/afe/{workflow_id}':
+  /api/v1.0/afe/{workflow_id}:
     get:
       tags:
         - Automated Feature Extraction
@@ -1471,7 +1447,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/afe/{workflow_id}/steps/{step_number}/input':
+  /api/v1.0/afe/{workflow_id}/steps/{step_number}/input:
     put:
       tags:
         - Automated Feature Extraction
@@ -1479,8 +1455,7 @@ paths:
       description: |-
         Update the input data of a specific step.
         The step will be reset to pending status for re-execution.
-      operationId: >-
-        update_step_input_api_v1_0_afe__workflow_id__steps__step_number__input_put
+      operationId: update_step_input_api_v1_0_afe__workflow_id__steps__step_number__input_put
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1586,7 +1561,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/org-config/llms/{llm_config_id}':
+  /api/v1.0/org-config/llms/{llm_config_id}:
     get:
       tags:
         - Organization Config
@@ -1747,14 +1722,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/org-config/providers/{provider_config_id}':
+  /api/v1.0/org-config/providers/{provider_config_id}:
     get:
       tags:
         - Organization Config
       summary: Get Provider Config
       description: Get a specific provider config for an organization
-      operationId: >-
-        get_provider_config_api_v1_0_org_config_providers__provider_config_id__get
+      operationId: get_provider_config_api_v1_0_org_config_providers__provider_config_id__get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1782,8 +1756,7 @@ paths:
         - Organization Config
       summary: Update Provider Config
       description: Update a provider config for an organization
-      operationId: >-
-        update_provider_config_api_v1_0_org_config_providers__provider_config_id__put
+      operationId: update_provider_config_api_v1_0_org_config_providers__provider_config_id__put
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1817,8 +1790,7 @@ paths:
         - Organization Config
       summary: Delete Provider Config
       description: Delete a provider config for an organization
-      operationId: >-
-        delete_provider_config_api_v1_0_org_config_providers__provider_config_id__delete
+      operationId: delete_provider_config_api_v1_0_org_config_providers__provider_config_id__delete
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1841,14 +1813,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/org-config/providers/{provider_config_id}/update_metadata':
+  /api/v1.0/org-config/providers/{provider_config_id}/update_metadata:
     put:
       tags:
         - Organization Config
       summary: Update Provider Metadata
       description: Update a provider usage config metadata
-      operationId: >-
-        update_provider_metadata_api_v1_0_org_config_providers__provider_config_id__update_metadata_put
+      operationId: update_provider_metadata_api_v1_0_org_config_providers__provider_config_id__update_metadata_put
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1883,14 +1854,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/org-config/providers/{provider_config_id}/projects':
+  /api/v1.0/org-config/providers/{provider_config_id}/projects:
     get:
       tags:
         - Organization Config
       summary: Get Openai Projects
       description: Get list of OpenAI projects for the organization
-      operationId: >-
-        get_openai_projects_api_v1_0_org_config_providers__provider_config_id__projects_get
+      operationId: get_openai_projects_api_v1_0_org_config_providers__provider_config_id__projects_get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1909,23 +1879,20 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OpenAIProject'
-                title: >-
-                  Response Get Openai Projects Api V1 0 Org Config Providers 
-                  Provider Config Id  Projects Get
+                title: Response Get Openai Projects Api V1 0 Org Config Providers  Provider Config Id  Projects Get
         '422':
           description: Validation Error
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/org-config/providers/{provider_config_id}/projects/{project_id}/api_keys':
+  /api/v1.0/org-config/providers/{provider_config_id}/projects/{project_id}/api_keys:
     get:
       tags:
         - Organization Config
       summary: Get Project Api Keys
       description: Get list of API keys for a specific OpenAI project
-      operationId: >-
-        get_project_api_keys_api_v1_0_org_config_providers__provider_config_id__projects__project_id__api_keys_get
+      operationId: get_project_api_keys_api_v1_0_org_config_providers__provider_config_id__projects__project_id__api_keys_get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -1950,9 +1917,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/OpenAIProjectAPIKey'
-                title: >-
-                  Response Get Project Api Keys Api V1 0 Org Config Providers 
-                  Provider Config Id  Projects  Project Id  Api Keys Get
+                title: Response Get Project Api Keys Api V1 0 Org Config Providers  Provider Config Id  Projects  Project Id  Api Keys Get
         '422':
           description: Validation Error
           content:
@@ -2144,7 +2109,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/metrics/openai/metrics/{provider_config_id}':
+  /api/v1.0/metrics/openai/metrics/{provider_config_id}:
     get:
       tags:
         - Metrics
@@ -2167,9 +2132,7 @@ paths:
               schema:
                 type: object
                 additionalProperties: true
-                title: >-
-                  Response Sync Metrics Api V1 0 Metrics Openai Metrics 
-                  Provider Config Id  Get
+                title: Response Sync Metrics Api V1 0 Metrics Openai Metrics  Provider Config Id  Get
         '422':
           description: Validation Error
           content:
@@ -2181,8 +2144,7 @@ paths:
       tags:
         - Metrics
       summary: Get Workflow Execution Metrics
-      operationId: >-
-        get_workflow_execution_metrics_api_v1_0_metrics_workflow_execution_metrics_get
+      operationId: get_workflow_execution_metrics_api_v1_0_metrics_workflow_execution_metrics_get
       responses:
         '200':
           description: Successful Response
@@ -2191,9 +2153,7 @@ paths:
               schema:
                 additionalProperties: true
                 type: object
-                title: >-
-                  Response Get Workflow Execution Metrics Api V1 0 Metrics
-                  Workflow Execution Metrics Get
+                title: Response Get Workflow Execution Metrics Api V1 0 Metrics Workflow Execution Metrics Get
       security:
         - OAuth2PasswordBearer: []
   /api/v1.0/syn-data-gen:
@@ -2211,8 +2171,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: >-
-                #/components/schemas/Body_initiate_syn_data_gen_api_v1_0_syn_data_gen_post
+              $ref: '#/components/schemas/Body_initiate_syn_data_gen_api_v1_0_syn_data_gen_post'
       responses:
         '200':
           description: Successful Response
@@ -2281,7 +2240,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/syn-data-gen/{run_id}/retry':
+  /api/v1.0/syn-data-gen/{run_id}/retry:
     post:
       tags:
         - Synthetic Data Generation
@@ -2310,7 +2269,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/syn-data-gen/{run_id}':
+  /api/v1.0/syn-data-gen/{run_id}:
     get:
       tags:
         - Synthetic Data Generation
@@ -2369,7 +2328,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/syn-data-gen/{run_id}/file':
+  /api/v1.0/syn-data-gen/{run_id}/file:
     get:
       tags:
         - Synthetic Data Generation
@@ -2404,15 +2363,11 @@ paths:
       tags:
         - Background Jobs
       summary: Create a background job
-      description: >-
+      description: |-
         Create a new background job for batch workflow execution.
 
-
-        This endpoint allows you to schedule a workflow to run in batch mode
-        using data from a CSV file.
-
-        You can choose to run the job immediately (one-time) or on a recurring
-        schedule.
+        This endpoint allows you to schedule a workflow to run in batch mode using data from a CSV file.
+        You can choose to run the job immediately (one-time) or on a recurring schedule.
       operationId: create_background_job_api_v1_0_background_jobs_post
       security:
         - OAuth2PasswordBearer: []
@@ -2421,8 +2376,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: >-
-                #/components/schemas/Body_create_background_job_api_v1_0_background_jobs_post
+              $ref: '#/components/schemas/Body_create_background_job_api_v1_0_background_jobs_post'
       responses:
         '200':
           description: Successful Response
@@ -2490,8 +2444,7 @@ paths:
           in: query
           required: false
           schema:
-            $ref: >-
-              #/components/schemas/app__workflow_engine__schema__background_job__SortField
+            $ref: '#/components/schemas/app__workflow_engine__schema__background_job__SortField'
             description: Field to sort by
             default: last_run_time
           description: Field to sort by
@@ -2516,7 +2469,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}':
+  /api/v1.0/background-jobs/{job_id}:
     get:
       tags:
         - Background Jobs
@@ -2568,8 +2521,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: >-
-                #/components/schemas/Body_update_background_job_api_v1_0_background_jobs__job_id__put
+              $ref: '#/components/schemas/Body_update_background_job_api_v1_0_background_jobs__job_id__put'
       responses:
         '200':
           description: Successful Response
@@ -2611,14 +2563,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}/download-csv-file':
+  /api/v1.0/background-jobs/{job_id}/download-csv-file:
     get:
       tags:
         - Background Jobs
       summary: Download raw input CSV file for a background job
       description: Download the CSV file for a background job.
-      operationId: >-
-        download_csv_file_api_v1_0_background_jobs__job_id__download_csv_file_get
+      operationId: download_csv_file_api_v1_0_background_jobs__job_id__download_csv_file_get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -2641,18 +2592,15 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}/executions':
+  /api/v1.0/background-jobs/{job_id}/executions:
     get:
       tags:
         - Background Jobs
       summary: Get background job executions
-      description: >-
+      description: |-
         List the individual items (rows) for a background job.
 
-
-        Each item represents a single execution of the workflow with data from
-        one CSV row.
-
+        Each item represents a single execution of the workflow with data from one CSV row.
         You can filter by status and paginate the results.
       operationId: get_job_executions_api_v1_0_background_jobs__job_id__executions_get
       security:
@@ -2699,19 +2647,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}/executions/{execution_id}':
+  /api/v1.0/background-jobs/{job_id}/executions/{execution_id}:
     get:
       tags:
         - Background Jobs
       summary: Get background job execution details
-      description: >-
+      description: |-
         Get details for a specific background job execution.
 
-
-        Returns information about the execution, including status, statistics,
-        and items.
-      operationId: >-
-        get_job_execution_api_v1_0_background_jobs__job_id__executions__execution_id__get
+        Returns information about the execution, including status, statistics, and items.
+      operationId: get_job_execution_api_v1_0_background_jobs__job_id__executions__execution_id__get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -2740,22 +2685,17 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}/executions/{execution_id}/items':
+  /api/v1.0/background-jobs/{job_id}/executions/{execution_id}/items:
     get:
       tags:
         - Background Jobs
       summary: Get background job execution items
-      description: >-
-        List the individual items (rows) for a specific background job
-        execution.
+      description: |-
+        List the individual items (rows) for a specific background job execution.
 
-
-        Each item represents a single execution of the workflow with data from
-        one CSV row.
-
+        Each item represents a single execution of the workflow with data from one CSV row.
         You can filter by status and paginate the results.
-      operationId: >-
-        get_job_execution_items_api_v1_0_background_jobs__job_id__executions__execution_id__items_get
+      operationId: get_job_execution_items_api_v1_0_background_jobs__job_id__executions__execution_id__items_get
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -2806,14 +2746,13 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}/deactivate':
+  /api/v1.0/background-jobs/{job_id}/deactivate:
     post:
       tags:
         - Background Jobs
       summary: Deactivate a background job
       description: Deactivate a background job.
-      operationId: >-
-        deactivate_background_job_api_v1_0_background_jobs__job_id__deactivate_post
+      operationId: deactivate_background_job_api_v1_0_background_jobs__job_id__deactivate_post
       security:
         - OAuth2PasswordBearer: []
       parameters:
@@ -2836,7 +2775,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}/activate':
+  /api/v1.0/background-jobs/{job_id}/activate:
     post:
       tags:
         - Background Jobs
@@ -2865,7 +2804,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HTTPValidationError'
-  '/api/v1.0/background-jobs/{job_id}/skip-schedule':
+  /api/v1.0/background-jobs/{job_id}/skip-schedule:
     post:
       tags:
         - Background Jobs
@@ -5568,9 +5507,7 @@ components:
         - created_at
         - created_by
       title: WorkflowRead
-      description: >-
-        Schema for reading a workflow, includes all fields including system
-        fields
+      description: Schema for reading a workflow, includes all fields including system fields
     WorkflowStatus:
       type: string
       enum:
@@ -5706,5 +5643,4 @@ components:
       flows:
         password:
           scopes: {}
-          tokenUrl: >-
-            https://idp.dev.alignx.ai/realms/alignx/protocol/openid-connect/token
+          tokenUrl: https://idp.dev.alignx.ai/realms/alignx/protocol/openid-connect/token
