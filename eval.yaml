@@ -1,0 +1,166 @@
+openapi: 3.0.0
+info:
+  title: Eval API
+  version: 1.0.0
+paths:
+  /api/v1/evaluate:
+    post:
+      tags:
+        - Evaluation
+      summary: Evaluate Text
+      description: Evaluate text based on the specified policies or metrics.
+      operationId: evaluate_text_api_v1_evaluate_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LLMEvaluationPayload'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EvaluationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /api/v1/policies:
+    get:
+      tags:
+        - Evaluation
+      summary: Get Available Policies
+      description: Get a list of all available policies and metrics.
+      operationId: get_available_policies_api_v1_policies_get
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AvailablePoliciesResponse'
+components:
+  schemas:
+    AvailablePoliciesResponse:
+      properties:
+        policies:
+          items:
+            type: string
+          type: array
+          title: Policies
+          description: List of available policy/metric names
+      type: object
+      required:
+        - policies
+      title: AvailablePoliciesResponse
+      description: Response model for available policies/metrics.
+      example:
+        policies:
+          - Factuality
+          - Context
+          - Relevance
+          - Safety
+    EvaluationResponse:
+      properties:
+        error:
+          type: string
+          title: Error
+          description: Error message if evaluation failed
+      additionalProperties: true
+      type: object
+      title: EvaluationResponse
+      description: Response model for LLM evaluation results.
+      example:
+        Factuality:
+          BLEU Score: 0.65
+          ROUGE Score: 0.78
+        Safety:
+          Toxicity Analysis:
+            label: safe
+            score: 0.05
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    HearbeatResult:
+      properties:
+        is_alive:
+          type: boolean
+          title: Is Alive
+      type: object
+      required:
+        - is_alive
+      title: HearbeatResult
+    LLMEvaluationPayload:
+      properties:
+        candidate:
+          type: string
+          title: Candidate
+          description: LLM-generated response
+        reference:
+          type: string
+          title: Reference
+          description: Ground truth or expected response
+        policies:
+          items:
+            type: string
+            enum:
+              - Factuality
+              - Context
+              - Relevance
+              - Safety
+              - Sentiment
+              - Toxicity
+              - Privacy
+              - Sensitivity
+              - Accessibility
+              - Engagement
+              - Transparency
+              - Error Detection
+          type: array
+          title: Policies
+          description: The list of policies to evaluate.
+      additionalProperties: true
+      type: object
+      required:
+        - candidate
+        - reference
+        - policies
+      title: LLMEvaluationPayload
+      description: Payload for LLM evaluation requests.
+      example:
+        candidate: The cricket is only for men.
+        policies:
+          - Factuality
+          - Safety
+        reference: Cricket is a sport played by all genders.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+              - type: string
+              - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+      type: object
+      required:
+        - loc
+        - msg
+        - type
+      title: ValidationError
