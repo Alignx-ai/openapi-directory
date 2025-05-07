@@ -9,34 +9,30 @@ paths:
         - Agents
       summary: Create Agent
       operationId: create_agent_api_v1_0_agents_post
-      security:
-        - OAuth2PasswordBearer: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgentBase'
+              $ref: "#/components/schemas/AgentBase"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentResponse'
-        '422':
+                $ref: "#/components/schemas/AgentResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     get:
       tags:
         - Agents
       summary: List Agents
       operationId: list_agents_api_v1_0_agents_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -71,26 +67,24 @@ paths:
             type: string
             title: Status
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentListResponse'
-        '422':
+                $ref: "#/components/schemas/AgentListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/agents/{agent_id}:
     get:
       tags:
         - Agents
       summary: Get Agent
       operationId: get_agent_api_v1_0_agents__agent_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: agent_id
           in: path
@@ -99,25 +93,23 @@ paths:
             type: string
             title: Agent Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentResponse'
-        '422':
+                $ref: "#/components/schemas/AgentResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     put:
       tags:
         - Agents
       summary: Update Agent
       operationId: update_agent_api_v1_0_agents__agent_id__put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: agent_id
           in: path
@@ -130,27 +122,25 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgentUpdate'
+              $ref: "#/components/schemas/AgentUpdate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentResponse'
-        '422':
+                $ref: "#/components/schemas/AgentResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Agents
       summary: Delete Agent
       operationId: delete_agent_api_v1_0_agents__agent_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: agent_id
           in: path
@@ -159,26 +149,24 @@ paths:
             type: string
             title: Agent Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentResponse'
-        '422':
+                $ref: "#/components/schemas/AgentResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/agents/{agent_id}/activate:
     put:
       tags:
         - Agents
       summary: Activate Agent
       operationId: activate_agent_api_v1_0_agents__agent_id__activate_put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: agent_id
           in: path
@@ -187,26 +175,24 @@ paths:
             type: string
             title: Agent Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentResponse'
-        '422':
+                $ref: "#/components/schemas/AgentResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/agents/{agent_id}/deactivate:
     put:
       tags:
         - Agents
       summary: Deactivate Agent
       operationId: deactivate_agent_api_v1_0_agents__agent_id__deactivate_put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: agent_id
           in: path
@@ -215,26 +201,24 @@ paths:
             type: string
             title: Agent Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentResponse'
-        '422':
+                $ref: "#/components/schemas/AgentResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/agents/{agent_id}/config:
     post:
       tags:
         - Agents
       summary: Register Config
       operationId: register_config_api_v1_0_agents__agent_id__config_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: agent_id
           in: path
@@ -247,28 +231,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AgentConfig-Input'
+              $ref: "#/components/schemas/AgentConfig-Input"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AgentResponse'
-        '422':
+                $ref: "#/components/schemas/AgentResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/agents/{agent_id}/test-connection:
     post:
       tags:
         - Agents
       summary: Test Connection
       operationId: test_connection_api_v1_0_agents__agent_id__test_connection_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: agent_id
           in: path
@@ -281,9 +263,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TestConnectionRequest'
+              $ref: "#/components/schemas/TestConnectionRequest"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -291,46 +273,42 @@ paths:
                 type: object
                 additionalProperties: true
                 title: Response Test Connection Api V1 0 Agents  Agent Id  Test Connection Post
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/templates:
     post:
       tags:
         - Prompt Templates
       summary: Create Template
       operationId: create_template_api_v1_0_templates_post
-      security:
-        - OAuth2PasswordBearer: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PromptTemplateBase'
+              $ref: "#/components/schemas/PromptTemplateBase"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptTemplateResponse'
-        '422':
+                $ref: "#/components/schemas/PromptTemplateResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     get:
       tags:
         - Prompt Templates
       summary: List Templates
       operationId: list_templates_api_v1_0_templates_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -372,7 +350,7 @@ paths:
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/TemplateSortField'
+            $ref: "#/components/schemas/TemplateSortField"
             description: Field to sort by
             default: last_updated_at
           description: Field to sort by
@@ -380,31 +358,29 @@ paths:
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/SortOrder'
+            $ref: "#/components/schemas/SortOrder"
             description: Sort order
             default: desc
           description: Sort order
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptTemplateListResponse'
-        '422':
+                $ref: "#/components/schemas/PromptTemplateListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/templates/{template_id}:
     put:
       tags:
         - Prompt Templates
       summary: Update Template
       operationId: update_template_api_v1_0_templates__template_id__put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: template_id
           in: path
@@ -417,27 +393,25 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PromptTemplateUpdate'
+              $ref: "#/components/schemas/PromptTemplateUpdate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptTemplateResponse'
-        '422':
+                $ref: "#/components/schemas/PromptTemplateResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Prompt Templates
       summary: Delete Template
       operationId: delete_template_api_v1_0_templates__template_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: template_id
           in: path
@@ -446,18 +420,18 @@ paths:
             type: string
             title: Template Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptTemplateResponse'
-        '422':
+                $ref: "#/components/schemas/PromptTemplateResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/folders:
     post:
       tags:
@@ -465,41 +439,37 @@ paths:
       summary: Create Folder
       description: Create a new prompt folder
       operationId: create_folder_api_v1_0_folders_post
-      security:
-        - OAuth2PasswordBearer: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PromptFolderCreate'
+              $ref: "#/components/schemas/PromptFolderCreate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptFolder'
-        '422':
+                $ref: "#/components/schemas/PromptFolder"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     get:
       tags:
         - Prompt Folders
       summary: List Folders
       description: Get folder tree structure with templates
       operationId: list_folders_api_v1_0_folders_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: sort_by
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/app__prompts__api__prompt_folder__SortField'
+            $ref: "#/components/schemas/app__prompts__api__prompt_folder__SortField"
             description: Field to sort by
             default: name
           description: Field to sort by
@@ -507,26 +477,26 @@ paths:
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/SortOrder'
+            $ref: "#/components/schemas/SortOrder"
             description: Sort order
             default: asc
           description: Sort order
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/PromptFolderTree'
+                  $ref: "#/components/schemas/PromptFolderTree"
                 title: Response List Folders Api V1 0 Folders Get
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/folders/{folder_id}:
     put:
       tags:
@@ -534,8 +504,6 @@ paths:
       summary: Update Folder
       description: Update a prompt folder
       operationId: update_folder_api_v1_0_folders__folder_id__put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: folder_id
           in: path
@@ -548,28 +516,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PromptFolderUpdate'
+              $ref: "#/components/schemas/PromptFolderUpdate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptFolder'
-        '422':
+                $ref: "#/components/schemas/PromptFolder"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Prompt Folders
       summary: Delete Folder
       description: Delete a prompt folder and all its contents (cascade delete)
       operationId: delete_folder_api_v1_0_folders__folder_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: folder_id
           in: path
@@ -578,18 +544,18 @@ paths:
             type: string
             title: Folder Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptFolder'
-        '422':
+                $ref: "#/components/schemas/PromptFolder"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/folders/{folder_id}/move:
     post:
       tags:
@@ -597,8 +563,6 @@ paths:
       summary: Move Folder
       description: Move a folder to a new parent folder
       operationId: move_folder_api_v1_0_folders__folder_id__move_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: folder_id
           in: path
@@ -612,21 +576,21 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             title: New Parent Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptFolder'
-        '422':
+                $ref: "#/components/schemas/PromptFolder"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/folders/{folder_id}/templates/{template_id}:
     post:
       tags:
@@ -634,8 +598,6 @@ paths:
       summary: Add Template To Folder
       description: Add a template to a folder
       operationId: add_template_to_folder_api_v1_0_folders__folder_id__templates__template_id__post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: folder_id
           in: path
@@ -650,26 +612,24 @@ paths:
             type: string
             title: Template Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptFolder'
-        '422':
+                $ref: "#/components/schemas/PromptFolder"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Prompt Folders
       summary: Remove Template From Folder
       description: Remove a template from a folder
       operationId: remove_template_from_folder_api_v1_0_folders__folder_id__templates__template_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: folder_id
           in: path
@@ -684,18 +644,18 @@ paths:
             type: string
             title: Template Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PromptFolder'
-        '422':
+                $ref: "#/components/schemas/PromptFolder"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflows:
     get:
       tags:
@@ -703,8 +663,6 @@ paths:
       summary: Get workflows
       description: Get all workflows for an organization with filtering and pagination
       operationId: get_workflows_api_v1_0_workflows_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -729,7 +687,7 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/components/schemas/WorkflowStatus'
+              $ref: "#/components/schemas/WorkflowStatus"
             title: Status
         - name: search
           in: query
@@ -753,26 +711,24 @@ paths:
             default: desc
             title: Sort Order
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowList'
-        '422':
+                $ref: "#/components/schemas/WorkflowList"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     post:
       tags:
         - Workflows
       summary: Create workflow
       description: Create a new workflow
       operationId: create_workflow_api_v1_0_workflows_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: draft
           in: query
@@ -786,20 +742,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/WorkflowCreate'
+              $ref: "#/components/schemas/WorkflowCreate"
       responses:
-        '201':
+        "201":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowRead'
-        '422':
+                $ref: "#/components/schemas/WorkflowRead"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflows/{workflow_id}:
     get:
       tags:
@@ -807,8 +763,6 @@ paths:
       summary: Get workflow
       description: Get a specific workflow by ID
       operationId: get_workflow_api_v1_0_workflows__workflow_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -817,26 +771,24 @@ paths:
             type: string
             title: Workflow Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowRead'
-        '422':
+                $ref: "#/components/schemas/WorkflowRead"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Workflows
       summary: Delete workflow
       description: Delete a specific workflow by ID
       operationId: delete_workflow_api_v1_0_workflows__workflow_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -845,26 +797,24 @@ paths:
             type: string
             title: Workflow Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowRead'
-        '422':
+                $ref: "#/components/schemas/WorkflowRead"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     put:
       tags:
         - Workflows
       summary: Update workflow
       description: Update an existing workflow
       operationId: update_workflow_api_v1_0_workflows__workflow_id__put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -877,20 +827,20 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/WorkflowUpdate'
+              $ref: "#/components/schemas/WorkflowUpdate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowRead'
-        '422':
+                $ref: "#/components/schemas/WorkflowRead"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflows/active/{workflow_id}:
     get:
       tags:
@@ -898,8 +848,6 @@ paths:
       summary: Get active workflow
       description: Get an active workflow by ID
       operationId: get_active_workflow_api_v1_0_workflows_active__workflow_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -908,18 +856,18 @@ paths:
             type: string
             title: Workflow Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowRead'
-        '422':
+                $ref: "#/components/schemas/WorkflowRead"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflows/version/{name}/{version}:
     get:
       tags:
@@ -927,8 +875,6 @@ paths:
       summary: Get workflow version
       description: Get a specific version of a workflow
       operationId: get_workflow_version_api_v1_0_workflows_version__name___version__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: name
           in: path
@@ -943,18 +889,18 @@ paths:
             type: string
             title: Version
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowRead'
-        '422':
+                $ref: "#/components/schemas/WorkflowRead"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflows/metrics/{org_id}:
     get:
       tags:
@@ -963,13 +909,11 @@ paths:
       description: Get execution metrics for workflows in an organization
       operationId: get_execution_metrics_api_v1_0_workflows_metrics__org_id__get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema: {}
-      security:
-        - OAuth2PasswordBearer: []
   /api/v1.0/workflows/{workflow_id}/csv-template:
     get:
       tags:
@@ -977,8 +921,6 @@ paths:
       summary: Generate CSV template for batch workflow execution
       description: Generate a CSV template with headers for variables that can be injected in batch workflow execution
       operationId: generate_workflow_csv_template_api_v1_0_workflows__workflow_id__csv_template_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -987,14 +929,14 @@ paths:
             type: string
             title: Workflow Id
       responses:
-        '200':
+        "200":
           description: Successful Response
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflow-executions/{workflow_id}/exec:
     post:
       tags:
@@ -1002,8 +944,6 @@ paths:
       summary: Create & trigger workflow execution
       description: Create a workflow-execution from config & trigger execution
       operationId: execute_workflow_api_v1_0_workflow_executions__workflow_id__exec_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -1012,18 +952,18 @@ paths:
             type: string
             title: Workflow Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowTriggerResponse'
-        '422':
+                $ref: "#/components/schemas/WorkflowTriggerResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflow-executions/{workflow_execution_id}/resume:
     put:
       tags:
@@ -1031,8 +971,6 @@ paths:
       summary: Resume workflow execution
       description: Resume a workflow execution
       operationId: resume_workflow_api_v1_0_workflow_executions__workflow_execution_id__resume_put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_execution_id
           in: path
@@ -1058,18 +996,18 @@ paths:
               description: Execution context
               title: Execution Context
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowTriggerResponse'
-        '422':
+                $ref: "#/components/schemas/WorkflowTriggerResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflow-executions:
     get:
       tags:
@@ -1077,8 +1015,6 @@ paths:
       summary: Get workflow executions
       description: Get workflow executions
       operationId: get_workflow_executions_api_v1_0_workflow_executions_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -1100,37 +1036,37 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             title: Workflow Id
         - name: status
           in: query
           required: false
           schema:
             anyOf:
-              - $ref: '#/components/schemas/WorkflowExecutionStatus'
-              - type: 'null'
+              - $ref: "#/components/schemas/WorkflowExecutionStatus"
+              - type: "null"
             title: Status
         - name: mode
           in: query
           required: false
           schema:
             anyOf:
-              - $ref: '#/components/schemas/WorkflowExecutionMode'
-              - type: 'null'
+              - $ref: "#/components/schemas/WorkflowExecutionMode"
+              - type: "null"
             title: Mode
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowExecList'
-        '422':
+                $ref: "#/components/schemas/WorkflowExecList"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/workflow-executions/{execution_id}:
     get:
       tags:
@@ -1138,8 +1074,6 @@ paths:
       summary: Get workflow execution
       description: Get workflow execution
       operationId: get_workflow_execution_api_v1_0_workflow_executions__execution_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: execution_id
           in: path
@@ -1148,18 +1082,18 @@ paths:
             type: string
             title: Execution Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/WorkflowExecResponse'
-        '422':
+                $ref: "#/components/schemas/WorkflowExecResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/prompt-engine/templates/generate:
     post:
       tags:
@@ -1167,8 +1101,6 @@ paths:
         - prompt-engine
       summary: Generate Template
       operationId: generate_template_api_v1_0_prompt_engine_templates_generate_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: thread_id
           in: query
@@ -1180,7 +1112,7 @@ paths:
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/TemplateType'
+            $ref: "#/components/schemas/TemplateType"
             default: form
         - name: temperature
           in: query
@@ -1193,9 +1125,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/PromptTemplateGenerate'
+              $ref: "#/components/schemas/PromptTemplateGenerate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -1203,12 +1135,12 @@ paths:
                 type: object
                 additionalProperties: true
                 title: Response Generate Template Api V1 0 Prompt Engine Templates Generate Post
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/prompt-engine/templates/chat-history/{thread_id}:
     get:
       tags:
@@ -1217,8 +1149,6 @@ paths:
       summary: Get Chat History
       description: Get chat history for a specific thread.
       operationId: get_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: thread_id
           in: path
@@ -1227,7 +1157,7 @@ paths:
             type: string
             title: Thread Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -1235,12 +1165,12 @@ paths:
                 type: array
                 items: {}
                 title: Response Get Chat History Api V1 0 Prompt Engine Templates Chat History  Thread Id  Get
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - prompt-engine
@@ -1248,8 +1178,6 @@ paths:
       summary: Clear Chat History
       description: Clear chat history for a specific thread.
       operationId: clear_chat_history_api_v1_0_prompt_engine_templates_chat_history__thread_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: thread_id
           in: path
@@ -1258,17 +1186,17 @@ paths:
             type: string
             title: Thread Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema: {}
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/afe:
     post:
       tags:
@@ -1282,23 +1210,21 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_initiate_workflow_api_v1_0_afe_post'
+              $ref: "#/components/schemas/Body_initiate_workflow_api_v1_0_afe_post"
         required: true
       responses:
-        '201':
+        "201":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/InitiateWorkflowResponse'
-        '422':
+                $ref: "#/components/schemas/InitiateWorkflowResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
-      security:
-        - OAuth2PasswordBearer: []
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/afe/{workflow_id}/next:
     post:
       tags:
@@ -1308,8 +1234,6 @@ paths:
         Execute the next pending step in the workflow.
         Returns the step result for user validation.
       operationId: execute_next_step_api_v1_0_afe__workflow_id__next_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -1318,18 +1242,18 @@ paths:
             type: string
             title: Workflow Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/StepExecutionResponse'
-        '422':
+                $ref: "#/components/schemas/StepExecutionResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/afe/{workflow_id}/steps/{step_number}/validate:
     post:
       tags:
@@ -1340,8 +1264,6 @@ paths:
         If validated successfully, the next step becomes available for execution.
         If validation fails, the step can be retried.
       operationId: validate_step_api_v1_0_afe__workflow_id__steps__step_number__validate_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -1360,9 +1282,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StepValidationRequest'
+              $ref: "#/components/schemas/StepValidationRequest"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -1370,20 +1292,18 @@ paths:
                 type: object
                 additionalProperties: true
                 title: Response Validate Step Api V1 0 Afe  Workflow Id  Steps  Step Number  Validate Post
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/afe/:
     get:
       tags:
         - Automated Feature Extraction
       summary: Get Workflows By Org Id
       operationId: get_workflows_by_org_id_api_v1_0_afe__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -1404,18 +1324,18 @@ paths:
             title: Limit
           description: Maximum number of records to return
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PaginatedWorkflowResponse'
-        '422':
+                $ref: "#/components/schemas/PaginatedWorkflowResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/afe/{workflow_id}:
     get:
       tags:
@@ -1425,8 +1345,6 @@ paths:
         Retrieve the current status and details of a specific workflow.
         Includes information about all steps and their current states.
       operationId: get_workflow_status_api_v1_0_afe__workflow_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -1435,18 +1353,18 @@ paths:
             type: string
             title: Workflow Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GetWorkflowResponse'
-        '422':
+                $ref: "#/components/schemas/GetWorkflowResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/afe/{workflow_id}/steps/{step_number}/input:
     put:
       tags:
@@ -1456,8 +1374,6 @@ paths:
         Update the input data of a specific step.
         The step will be reset to pending status for re-execution.
       operationId: update_step_input_api_v1_0_afe__workflow_id__steps__step_number__input_put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: workflow_id
           in: path
@@ -1480,17 +1396,17 @@ paths:
               additionalProperties: true
               title: New Input Data
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema: {}
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/org-config/llms:
     post:
       tags:
@@ -1498,35 +1414,31 @@ paths:
       summary: Register Llm Config
       description: Register LLM config for an org
       operationId: register_llm_config_api_v1_0_org_config_llms_post
-      security:
-        - OAuth2PasswordBearer: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LLMConfigCreate'
+              $ref: "#/components/schemas/LLMConfigCreate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMConfig'
-        '422':
+                $ref: "#/components/schemas/LLMConfig"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     get:
       tags:
         - Organization Config
       summary: List Llm Configs
       description: Get llm configs under an org
       operationId: list_llm_configs_api_v1_0_org_config_llms_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -1549,18 +1461,18 @@ paths:
             type: string
             title: Search
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMConfigListResponse'
-        '422':
+                $ref: "#/components/schemas/LLMConfigListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/org-config/llms/{llm_config_id}:
     get:
       tags:
@@ -1568,8 +1480,6 @@ paths:
       summary: Get Llm Config
       description: Get a llm config under an org
       operationId: get_llm_config_api_v1_0_org_config_llms__llm_config_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: llm_config_id
           in: path
@@ -1578,26 +1488,24 @@ paths:
             type: string
             title: Llm Config Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMConfig'
-        '422':
+                $ref: "#/components/schemas/LLMConfig"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     put:
       tags:
         - Organization Config
       summary: Update Llm Config
       description: Update a llm config under an org
       operationId: update_llm_config_api_v1_0_org_config_llms__llm_config_id__put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: llm_config_id
           in: path
@@ -1610,28 +1518,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LLMConfigUpdate'
+              $ref: "#/components/schemas/LLMConfigUpdate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMConfig'
-        '422':
+                $ref: "#/components/schemas/LLMConfig"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Organization Config
       summary: Delete Llm Config
       description: Delete a llm config under an org
       operationId: delete_llm_config_api_v1_0_org_config_llms__llm_config_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: llm_config_id
           in: path
@@ -1640,18 +1546,18 @@ paths:
             type: string
             title: Llm Config Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMConfig'
-        '422':
+                $ref: "#/components/schemas/LLMConfig"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/org-config/providers:
     post:
       tags:
@@ -1659,35 +1565,31 @@ paths:
       summary: Create Provider Config
       description: Create a provider config for an organization
       operationId: create_provider_config_api_v1_0_org_config_providers_post
-      security:
-        - OAuth2PasswordBearer: []
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OrgProviderConfigCreate'
+              $ref: "#/components/schemas/OrgProviderConfigCreate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrgProviderConfigResponse'
-        '422':
+                $ref: "#/components/schemas/OrgProviderConfigResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     get:
       tags:
         - Organization Config
       summary: List Provider Configs
       description: List all provider configs for an organization
       operationId: list_provider_configs_api_v1_0_org_config_providers_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -1710,18 +1612,18 @@ paths:
             type: string
             title: Search
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrgProviderConfigListResponse'
-        '422':
+                $ref: "#/components/schemas/OrgProviderConfigListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/org-config/providers/{provider_config_id}:
     get:
       tags:
@@ -1729,8 +1631,6 @@ paths:
       summary: Get Provider Config
       description: Get a specific provider config for an organization
       operationId: get_provider_config_api_v1_0_org_config_providers__provider_config_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: path
@@ -1739,26 +1639,24 @@ paths:
             type: string
             title: Provider Config Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrgProviderConfigResponse'
-        '422':
+                $ref: "#/components/schemas/OrgProviderConfigResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     put:
       tags:
         - Organization Config
       summary: Update Provider Config
       description: Update a provider config for an organization
       operationId: update_provider_config_api_v1_0_org_config_providers__provider_config_id__put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: path
@@ -1771,28 +1669,26 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OrgProviderConfigUpdate'
+              $ref: "#/components/schemas/OrgProviderConfigUpdate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrgProviderConfigResponse'
-        '422':
+                $ref: "#/components/schemas/OrgProviderConfigResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Organization Config
       summary: Delete Provider Config
       description: Delete a provider config for an organization
       operationId: delete_provider_config_api_v1_0_org_config_providers__provider_config_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: path
@@ -1801,18 +1697,18 @@ paths:
             type: string
             title: Provider Config Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/OrgProviderConfigResponse'
-        '422':
+                $ref: "#/components/schemas/OrgProviderConfigResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/org-config/providers/{provider_config_id}/update_metadata:
     put:
       tags:
@@ -1820,8 +1716,6 @@ paths:
       summary: Update Provider Metadata
       description: Update a provider usage config metadata
       operationId: update_provider_metadata_api_v1_0_org_config_providers__provider_config_id__update_metadata_put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: path
@@ -1841,19 +1735,19 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/OpenAIProjectMetadataUpdate'
+              $ref: "#/components/schemas/OpenAIProjectMetadataUpdate"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema: {}
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/org-config/providers/{provider_config_id}/projects:
     get:
       tags:
@@ -1861,8 +1755,6 @@ paths:
       summary: Get Openai Projects
       description: Get list of OpenAI projects for the organization
       operationId: get_openai_projects_api_v1_0_org_config_providers__provider_config_id__projects_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: path
@@ -1871,21 +1763,21 @@ paths:
             type: string
             title: Provider Config Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OpenAIProject'
+                  $ref: "#/components/schemas/OpenAIProject"
                 title: Response Get Openai Projects Api V1 0 Org Config Providers  Provider Config Id  Projects Get
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/org-config/providers/{provider_config_id}/projects/{project_id}/api_keys:
     get:
       tags:
@@ -1893,8 +1785,6 @@ paths:
       summary: Get Project Api Keys
       description: Get list of API keys for a specific OpenAI project
       operationId: get_project_api_keys_api_v1_0_org_config_providers__provider_config_id__projects__project_id__api_keys_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: project_id
           in: path
@@ -1909,21 +1799,21 @@ paths:
             type: string
             title: Provider Config Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/OpenAIProjectAPIKey'
+                  $ref: "#/components/schemas/OpenAIProjectAPIKey"
                 title: Response Get Project Api Keys Api V1 0 Org Config Providers  Provider Config Id  Projects  Project Id  Api Keys Get
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/metrics/usage:
     get:
       tags:
@@ -1931,8 +1821,6 @@ paths:
       summary: Get organization metrics
       description: Get metrics for an organization with optional filters
       operationId: get_org_metrics_api_v1_0_metrics_usage_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: query
@@ -1940,23 +1828,23 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             description: Provider config ID
             title: Provider Config Id
           description: Provider config ID
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MetricsResponse'
-        '422':
+                $ref: "#/components/schemas/MetricsResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/metrics/dashboard:
     get:
       tags:
@@ -1964,8 +1852,6 @@ paths:
       summary: Get dashboard metrics
       description: Get aggregated metrics for dashboard visualization
       operationId: get_dashboard_metrics_api_v1_0_metrics_dashboard_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: query
@@ -1973,7 +1859,7 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             description: Provider config ID
             title: Provider Config Id
           description: Provider config ID
@@ -1984,7 +1870,7 @@ paths:
             type: string
             format: date-time
             description: Start date
-            default: '2025-04-06T09:51:18.518813Z'
+            default: "2025-04-06T09:51:18.518813Z"
             title: Start Date
           description: Start date
         - name: end_date
@@ -1994,7 +1880,7 @@ paths:
             type: string
             format: date-time
             description: End date
-            default: '2025-05-06T09:51:18.518853Z'
+            default: "2025-05-06T09:51:18.518853Z"
             title: End Date
           description: End date
         - name: eval_limit
@@ -2012,12 +1898,12 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             description: Agent ID
             title: Agent Id
           description: Agent ID
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -2025,12 +1911,12 @@ paths:
                 type: object
                 additionalProperties: true
                 title: Response Get Dashboard Metrics Api V1 0 Metrics Dashboard Get
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/metrics/evals:
     get:
       tags:
@@ -2038,8 +1924,6 @@ paths:
       summary: Get evaluation executions
       description: Get evaluation executions for an organization
       operationId: get_eval_metrics_api_v1_0_metrics_evals_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: start_date
           in: query
@@ -2048,7 +1932,7 @@ paths:
             type: string
             format: date-time
             description: Start date
-            default: '2025-04-06T09:51:18.522350Z'
+            default: "2025-04-06T09:51:18.522350Z"
             title: Start Date
           description: Start date
         - name: end_date
@@ -2058,7 +1942,7 @@ paths:
             type: string
             format: date-time
             description: End date
-            default: '2025-05-06T09:51:18.522419Z'
+            default: "2025-05-06T09:51:18.522419Z"
             title: End Date
           description: End date
         - name: agent_id
@@ -2067,7 +1951,7 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             description: Agent ID
             title: Agent Id
           description: Agent ID
@@ -2094,29 +1978,27 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             title: Policy Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EvalExecutionList'
-        '422':
+                $ref: "#/components/schemas/EvalExecutionList"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/metrics/openai/metrics/{provider_config_id}:
     get:
       tags:
         - Metrics
       summary: Sync Metrics
       operationId: sync_metrics_api_v1_0_metrics_openai_metrics__provider_config_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: provider_config_id
           in: path
@@ -2125,7 +2007,7 @@ paths:
             type: string
             title: Provider Config Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -2133,12 +2015,12 @@ paths:
                 type: object
                 additionalProperties: true
                 title: Response Sync Metrics Api V1 0 Metrics Openai Metrics  Provider Config Id  Get
-        '422':
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/metrics/workflow-execution/metrics:
     get:
       tags:
@@ -2146,7 +2028,7 @@ paths:
       summary: Get Workflow Execution Metrics
       operationId: get_workflow_execution_metrics_api_v1_0_metrics_workflow_execution_metrics_get
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
@@ -2154,8 +2036,6 @@ paths:
                 additionalProperties: true
                 type: object
                 title: Response Get Workflow Execution Metrics Api V1 0 Metrics Workflow Execution Metrics Get
-      security:
-        - OAuth2PasswordBearer: []
   /api/v1.0/syn-data-gen:
     post:
       tags:
@@ -2164,27 +2044,25 @@ paths:
       summary: Initiate Syn Data Gen
       description: Initiate synthetic data generation
       operationId: initiate_syn_data_gen_api_v1_0_syn_data_gen_post
-      security:
-        - OAuth2PasswordBearer: []
       requestBody:
         required: true
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_initiate_syn_data_gen_api_v1_0_syn_data_gen_post'
+              $ref: "#/components/schemas/Body_initiate_syn_data_gen_api_v1_0_syn_data_gen_post"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyntheticDataRunResponse'
-        '422':
+                $ref: "#/components/schemas/SyntheticDataRunResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     get:
       tags:
         - Synthetic Data Generation
@@ -2192,8 +2070,6 @@ paths:
       summary: Get All Data Gen Runs
       description: Get all data generation runs with pagination and filtering
       operationId: get_all_data_gen_runs_api_v1_0_syn_data_gen_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -2221,25 +2097,25 @@ paths:
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/GenerationMode'
+            $ref: "#/components/schemas/GenerationMode"
         - name: status
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/RunStatus'
+            $ref: "#/components/schemas/RunStatus"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyntheticDataRunListResponse'
-        '422':
+                $ref: "#/components/schemas/SyntheticDataRunListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/syn-data-gen/{run_id}/retry:
     post:
       tags:
@@ -2247,8 +2123,6 @@ paths:
         - Synthetic Data Generation
       summary: Retry Syn Data Gen
       operationId: retry_syn_data_gen_api_v1_0_syn_data_gen__run_id__retry_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: run_id
           in: path
@@ -2257,18 +2131,18 @@ paths:
             type: string
             title: Run Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyntheticDataRunResponse'
-        '422':
+                $ref: "#/components/schemas/SyntheticDataRunResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/syn-data-gen/{run_id}:
     get:
       tags:
@@ -2277,8 +2151,6 @@ paths:
       summary: Get Data Gen
       description: Get the details of a particular data generation run by ID
       operationId: get_data_gen_api_v1_0_syn_data_gen__run_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: run_id
           in: path
@@ -2287,18 +2159,18 @@ paths:
             type: string
             title: Run Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyntheticDataRunResponse'
-        '422':
+                $ref: "#/components/schemas/SyntheticDataRunResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Synthetic Data Generation
@@ -2306,8 +2178,6 @@ paths:
       summary: Delete Data Gen Run
       description: Delete a data generation run
       operationId: delete_data_gen_run_api_v1_0_syn_data_gen__run_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: run_id
           in: path
@@ -2316,18 +2186,18 @@ paths:
             type: string
             title: Run Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyntheticDataDeleteResponse'
-        '422':
+                $ref: "#/components/schemas/SyntheticDataDeleteResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/syn-data-gen/{run_id}/file:
     get:
       tags:
@@ -2336,8 +2206,6 @@ paths:
       summary: Get Data Gen File
       description: Download the generated synthetic data
       operationId: get_data_gen_file_api_v1_0_syn_data_gen__run_id__file_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: run_id
           in: path
@@ -2346,18 +2214,18 @@ paths:
             type: string
             title: Run Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyntheticDataFileResponse'
-        '422':
+                $ref: "#/components/schemas/SyntheticDataFileResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs:
     post:
       tags:
@@ -2369,27 +2237,25 @@ paths:
         This endpoint allows you to schedule a workflow to run in batch mode using data from a CSV file.
         You can choose to run the job immediately (one-time) or on a recurring schedule.
       operationId: create_background_job_api_v1_0_background_jobs_post
-      security:
-        - OAuth2PasswordBearer: []
       requestBody:
         required: true
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_create_background_job_api_v1_0_background_jobs_post'
+              $ref: "#/components/schemas/Body_create_background_job_api_v1_0_background_jobs_post"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     get:
       tags:
         - Background Jobs
@@ -2399,8 +2265,6 @@ paths:
 
         You can filter by status and job type, and paginate the results.
       operationId: list_background_jobs_api_v1_0_background_jobs_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: skip
           in: query
@@ -2421,16 +2285,16 @@ paths:
           required: false
           schema:
             anyOf:
-              - $ref: '#/components/schemas/JobState'
-              - type: 'null'
+              - $ref: "#/components/schemas/JobState"
+              - type: "null"
             title: State
         - name: job_type
           in: query
           required: false
           schema:
             anyOf:
-              - $ref: '#/components/schemas/JobType'
-              - type: 'null'
+              - $ref: "#/components/schemas/JobType"
+              - type: "null"
             title: Job Type
         - name: search
           in: query
@@ -2438,13 +2302,13 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             title: Search
         - name: sort_by
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/app__workflow_engine__schema__background_job__SortField'
+            $ref: "#/components/schemas/app__workflow_engine__schema__background_job__SortField"
             description: Field to sort by
             default: last_run_time
           description: Field to sort by
@@ -2452,23 +2316,23 @@ paths:
           in: query
           required: false
           schema:
-            $ref: '#/components/schemas/SortOrder'
+            $ref: "#/components/schemas/SortOrder"
             description: Sort order
             default: desc
           description: Sort order
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobListResponse'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}:
     get:
       tags:
@@ -2479,8 +2343,6 @@ paths:
 
         Returns information about the job, its status, and execution statistics.
       operationId: get_background_job_api_v1_0_background_jobs__job_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2489,26 +2351,24 @@ paths:
             type: string
             title: Job Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     put:
       tags:
         - Background Jobs
       summary: Update a background job
       description: Update a background job.
       operationId: update_background_job_api_v1_0_background_jobs__job_id__put
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2521,28 +2381,26 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_update_background_job_api_v1_0_background_jobs__job_id__put'
+              $ref: "#/components/schemas/Body_update_background_job_api_v1_0_background_jobs__job_id__put"
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
     delete:
       tags:
         - Background Jobs
       summary: Delete a background job
       description: Delete a background job.
       operationId: delete_background_job_api_v1_0_background_jobs__job_id__delete
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2551,18 +2409,18 @@ paths:
             type: string
             title: Job Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}/download-csv-file:
     get:
       tags:
@@ -2570,8 +2428,6 @@ paths:
       summary: Download raw input CSV file for a background job
       description: Download the CSV file for a background job.
       operationId: download_csv_file_api_v1_0_background_jobs__job_id__download_csv_file_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2580,18 +2436,18 @@ paths:
             type: string
             title: Job Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobCsvFileResponse'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobCsvFileResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}/executions:
     get:
       tags:
@@ -2603,8 +2459,6 @@ paths:
         Each item represents a single execution of the workflow with data from one CSV row.
         You can filter by status and paginate the results.
       operationId: get_job_executions_api_v1_0_background_jobs__job_id__executions_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2631,22 +2485,22 @@ paths:
           required: false
           schema:
             anyOf:
-              - $ref: '#/components/schemas/JobExecutionStatus'
-              - type: 'null'
+              - $ref: "#/components/schemas/JobExecutionStatus"
+              - type: "null"
             title: Status
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobExecutionListResponse'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobExecutionListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}/executions/{execution_id}:
     get:
       tags:
@@ -2657,8 +2511,6 @@ paths:
 
         Returns information about the execution, including status, statistics, and items.
       operationId: get_job_execution_api_v1_0_background_jobs__job_id__executions__execution_id__get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2673,18 +2525,18 @@ paths:
             type: string
             title: Execution Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobExecutionDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobExecutionDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}/executions/{execution_id}/items:
     get:
       tags:
@@ -2696,8 +2548,6 @@ paths:
         Each item represents a single execution of the workflow with data from one CSV row.
         You can filter by status and paginate the results.
       operationId: get_job_execution_items_api_v1_0_background_jobs__job_id__executions__execution_id__items_get
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2731,21 +2581,21 @@ paths:
           schema:
             anyOf:
               - type: string
-              - type: 'null'
+              - type: "null"
             title: Status
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobExecutionItemListResponse'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobExecutionItemListResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}/deactivate:
     post:
       tags:
@@ -2753,8 +2603,6 @@ paths:
       summary: Deactivate a background job
       description: Deactivate a background job.
       operationId: deactivate_background_job_api_v1_0_background_jobs__job_id__deactivate_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2763,18 +2611,18 @@ paths:
             type: string
             title: Job Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}/activate:
     post:
       tags:
@@ -2782,8 +2630,6 @@ paths:
       summary: Activate a background job
       description: Activate a background job.
       operationId: activate_background_job_api_v1_0_background_jobs__job_id__activate_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2792,18 +2638,18 @@ paths:
             type: string
             title: Job Id
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/background-jobs/{job_id}/skip-schedule:
     post:
       tags:
@@ -2811,8 +2657,6 @@ paths:
       summary: Skip 'n' schedules for a background job
       description: Skip 'n' schedules for a background job.
       operationId: skip_schedule_api_v1_0_background_jobs__job_id__skip_schedule_post
-      security:
-        - OAuth2PasswordBearer: []
       parameters:
         - name: job_id
           in: path
@@ -2830,30 +2674,30 @@ paths:
             default: 1
             title: N Skip
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BackgroundJobDTO'
-        '422':
+                $ref: "#/components/schemas/BackgroundJobDTO"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
 components:
   schemas:
     AgentAuthConfig:
       properties:
         auth_method:
-          $ref: '#/components/schemas/AgentAuthMethod'
+          $ref: "#/components/schemas/AgentAuthMethod"
         config:
           anyOf:
-            - $ref: '#/components/schemas/ApikeyAuthConfig'
-            - $ref: '#/components/schemas/BasicAuthConfig'
-            - $ref: '#/components/schemas/ClientCredentialsAuthConfig'
-            - type: 'null'
+            - $ref: "#/components/schemas/ApikeyAuthConfig"
+            - $ref: "#/components/schemas/BasicAuthConfig"
+            - $ref: "#/components/schemas/ClientCredentialsAuthConfig"
+            - type: "null"
           title: Config
       type: object
       required:
@@ -2880,12 +2724,12 @@ components:
           type: string
           title: Version
         env:
-          $ref: '#/components/schemas/AgentEnvironment'
+          $ref: "#/components/schemas/AgentEnvironment"
         description:
           type: string
           title: Description
         status:
-          $ref: '#/components/schemas/AgentStatus'
+          $ref: "#/components/schemas/AgentStatus"
           default: active
       type: object
       required:
@@ -2904,13 +2748,13 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         timeout:
           anyOf:
             - type: integer
               exclusiveMinimum: 0
-            - type: 'null'
+            - type: "null"
           title: Timeout
           default: 30
         agent_id:
@@ -2919,12 +2763,12 @@ components:
         name:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Name
         prompt_template_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Prompt Template Id
         prompt_params:
           additionalProperties: true
@@ -2941,17 +2785,17 @@ components:
         eval_llm_response:
           anyOf:
             - type: boolean
-            - type: 'null'
+            - type: "null"
           title: Eval Llm Response
           default: false
         eval_config:
           anyOf:
-            - $ref: '#/components/schemas/LLMResponseEvalConfig-Input'
-            - type: 'null'
+            - $ref: "#/components/schemas/LLMResponseEvalConfig-Input"
+            - type: "null"
         sub_type:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Sub Type
       type: object
       required:
@@ -2967,13 +2811,13 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         timeout:
           anyOf:
             - type: integer
               exclusiveMinimum: 0
-            - type: 'null'
+            - type: "null"
           title: Timeout
           default: 30
         agent_id:
@@ -2982,12 +2826,12 @@ components:
         name:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Name
         prompt_template_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Prompt Template Id
         prompt_params:
           additionalProperties: true
@@ -3004,17 +2848,17 @@ components:
         eval_llm_response:
           anyOf:
             - type: boolean
-            - type: 'null'
+            - type: "null"
           title: Eval Llm Response
           default: false
         eval_config:
           anyOf:
-            - $ref: '#/components/schemas/LLMResponseEvalConfig-Output'
-            - type: 'null'
+            - $ref: "#/components/schemas/LLMResponseEvalConfig-Output"
+            - type: "null"
         sub_type:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Sub Type
       type: object
       required:
@@ -3024,25 +2868,25 @@ components:
     AgentConfig-Input:
       properties:
         provider:
-          $ref: '#/components/schemas/AgentProvider'
+          $ref: "#/components/schemas/AgentProvider"
         auth_config:
-          $ref: '#/components/schemas/AgentAuthConfig'
+          $ref: "#/components/schemas/AgentAuthConfig"
         api_config:
           anyOf:
-            - $ref: '#/components/schemas/CustomApiConfig'
-            - $ref: '#/components/schemas/SalesforceApiConfig'
+            - $ref: "#/components/schemas/CustomApiConfig"
+            - $ref: "#/components/schemas/SalesforceApiConfig"
           title: Api Config
         req_schema:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Req Schema
         resp_schema:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Resp Schema
       type: object
       required:
@@ -3053,25 +2897,25 @@ components:
     AgentConfig-Output:
       properties:
         provider:
-          $ref: '#/components/schemas/AgentProvider'
+          $ref: "#/components/schemas/AgentProvider"
         auth_config:
-          $ref: '#/components/schemas/AgentAuthConfig'
+          $ref: "#/components/schemas/AgentAuthConfig"
         api_config:
           anyOf:
-            - $ref: '#/components/schemas/CustomApiConfig'
-            - $ref: '#/components/schemas/SalesforceApiConfig'
+            - $ref: "#/components/schemas/CustomApiConfig"
+            - $ref: "#/components/schemas/SalesforceApiConfig"
           title: Api Config
         req_schema:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Req Schema
         resp_schema:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Resp Schema
       type: object
       required:
@@ -3089,7 +2933,7 @@ components:
       properties:
         agents:
           items:
-            $ref: '#/components/schemas/AgentResponse'
+            $ref: "#/components/schemas/AgentResponse"
           type: array
           title: Agents
         total:
@@ -3104,7 +2948,7 @@ components:
         message:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Message
       type: object
       required:
@@ -3139,7 +2983,7 @@ components:
         status:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Status
         description:
           type: string
@@ -3149,29 +2993,29 @@ components:
           title: Org Id
         agent_config:
           anyOf:
-            - $ref: '#/components/schemas/AgentConfig-Output'
-            - type: 'null'
+            - $ref: "#/components/schemas/AgentConfig-Output"
+            - type: "null"
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         created_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
       type: object
       required:
@@ -3209,16 +3053,16 @@ components:
           type: string
           title: Version
         env:
-          $ref: '#/components/schemas/AgentEnvironment'
+          $ref: "#/components/schemas/AgentEnvironment"
         description:
           type: string
           title: Description
         status:
-          $ref: '#/components/schemas/AgentStatus'
+          $ref: "#/components/schemas/AgentStatus"
         org_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Org Id
         id:
           type: string
@@ -3269,7 +3113,7 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         version:
           type: string
@@ -3287,7 +3131,7 @@ components:
         workflow_name:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Workflow Name
         job_type:
           type: string
@@ -3299,12 +3143,12 @@ components:
         schedule_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Schedule Id
         schedule:
           anyOf:
-            - $ref: '#/components/schemas/JobScheduleDTO'
-            - type: 'null'
+            - $ref: "#/components/schemas/JobScheduleDTO"
+            - type: "null"
         created_at:
           type: string
           format: date-time
@@ -3313,17 +3157,17 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
       type: object
       required:
@@ -3369,18 +3213,18 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Started At
         completed_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Completed At
         error:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error
       type: object
       required:
@@ -3401,12 +3245,12 @@ components:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Row Data
         error:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error
         attempt_count:
           type: integer
@@ -3414,8 +3258,8 @@ components:
           default: 0
         workflow_execution:
           anyOf:
-            - $ref: '#/components/schemas/WorkflowExecResponse'
-            - type: 'null'
+            - $ref: "#/components/schemas/WorkflowExecResponse"
+            - type: "null"
       type: object
       required:
         - id
@@ -3425,7 +3269,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/BackgroundJobExecutionItemDTO'
+            $ref: "#/components/schemas/BackgroundJobExecutionItemDTO"
           type: array
           title: Items
         total:
@@ -3448,7 +3292,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/BackgroundJobExecutionDTO'
+            $ref: "#/components/schemas/BackgroundJobExecutionDTO"
           type: array
           title: Items
         total:
@@ -3471,7 +3315,7 @@ components:
       properties:
         jobs:
           items:
-            $ref: '#/components/schemas/BackgroundJobDTO'
+            $ref: "#/components/schemas/BackgroundJobDTO"
           type: array
           title: Jobs
         total:
@@ -3484,9 +3328,9 @@ components:
           type: integer
           title: Limit
         sort_by:
-          $ref: '#/components/schemas/SortField-Output'
+          $ref: "#/components/schemas/SortField-Output"
         sort_order:
-          $ref: '#/components/schemas/SortOrder'
+          $ref: "#/components/schemas/SortOrder"
       type: object
       required:
         - jobs
@@ -3530,7 +3374,7 @@ components:
           format: binary
           title: File
         gen_mode:
-          $ref: '#/components/schemas/GenerationMode'
+          $ref: "#/components/schemas/GenerationMode"
           default: SLM
         n_samples:
           type: integer
@@ -3543,7 +3387,7 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
       type: object
       required:
@@ -3569,7 +3413,7 @@ components:
           anyOf:
             - type: string
               format: binary
-            - type: 'null'
+            - type: "null"
           title: Csv File
       type: object
       required:
@@ -3586,7 +3430,7 @@ components:
         access_token_url:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Access Token Url
         http_method:
           type: string
@@ -3598,14 +3442,14 @@ components:
         refresh_token_url:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Refresh Token Url
         scope:
           anyOf:
             - items:
                 type: string
               type: array
-            - type: 'null'
+            - type: "null"
           title: Scope
       type: object
       required:
@@ -3627,18 +3471,18 @@ components:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Static Headers
         static_params:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Static Params
         openapi_url:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Openapi Url
       type: object
       required:
@@ -3659,9 +3503,9 @@ components:
         conditions:
           anyOf:
             - items:
-                $ref: '#/components/schemas/EdgeCondition'
+                $ref: "#/components/schemas/EdgeCondition"
               type: array
-            - type: 'null'
+            - type: "null"
           title: Conditions
         priority:
           type: integer
@@ -3692,7 +3536,7 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
       additionalProperties: false
       type: object
@@ -3705,7 +3549,7 @@ components:
       properties:
         evals:
           items:
-            $ref: '#/components/schemas/EvalExecutionResponse'
+            $ref: "#/components/schemas/EvalExecutionResponse"
           type: array
           title: Evals
           description: List of eval executions
@@ -3751,14 +3595,14 @@ components:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Input Data
           description: Input data for the evaluation
         output_data:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Output Data
           description: Output data from the evaluation
         started_at:
@@ -3770,13 +3614,13 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Completed At
           description: When the evaluation completed
         error:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error
           description: Error message if evaluation failed
       type: object
@@ -3800,7 +3644,7 @@ components:
           description: Ground truth or expected response
         policies:
           items:
-            $ref: '#/components/schemas/Policy'
+            $ref: "#/components/schemas/Policy"
           type: array
           title: Policies
       type: object
@@ -3820,7 +3664,7 @@ components:
           description: Ground truth or expected response
         policies:
           items:
-            $ref: '#/components/schemas/Policy'
+            $ref: "#/components/schemas/Policy"
           type: array
           title: Policies
       type: object
@@ -3837,13 +3681,13 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         timeout:
           anyOf:
             - type: integer
               exclusiveMinimum: 0
-            - type: 'null'
+            - type: "null"
           title: Timeout
           default: 30
         output_mapping:
@@ -3874,7 +3718,7 @@ components:
         dataset_url:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Dataset Url
         created_at:
           type: string
@@ -3882,14 +3726,14 @@ components:
         updated_at:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Updated At
         steps:
           anyOf:
             - items:
-                $ref: '#/components/schemas/WorkflowStepResponse'
+                $ref: "#/components/schemas/WorkflowStepResponse"
               type: array
-            - type: 'null'
+            - type: "null"
           title: Steps
       type: object
       required:
@@ -3905,7 +3749,7 @@ components:
       properties:
         detail:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: "#/components/schemas/ValidationError"
           type: array
           title: Detail
       type: object
@@ -3939,37 +3783,37 @@ components:
         schedule_interval_days:
           anyOf:
             - type: integer
-            - type: 'null'
+            - type: "null"
           title: Schedule Interval Days
         schedule_time:
           anyOf:
             - type: string
               format: time
-            - type: 'null'
+            - type: "null"
           title: Schedule Time
         next_run_time:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Next Run Time
         last_run_time:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Run Time
         schedule_start_date:
           anyOf:
             - type: string
               format: date
-            - type: 'null'
+            - type: "null"
           title: Schedule Start Date
         schedule_end_date:
           anyOf:
             - type: string
               format: date
-            - type: 'null'
+            - type: "null"
           title: Schedule End Date
         created_at:
           type: string
@@ -3979,17 +3823,17 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
       type: object
       required:
@@ -4016,14 +3860,14 @@ components:
           type: string
           title: Api Key
         provider:
-          $ref: '#/components/schemas/LLMProvider'
+          $ref: "#/components/schemas/LLMProvider"
         provider_config_id:
           type: string
           title: Provider Config Id
         is_default:
           anyOf:
             - type: boolean
-            - type: 'null'
+            - type: "null"
           title: Is Default
         id:
           type: string
@@ -4050,14 +3894,14 @@ components:
           type: string
           title: Api Key
         provider:
-          $ref: '#/components/schemas/LLMProvider'
+          $ref: "#/components/schemas/LLMProvider"
         provider_config_id:
           type: string
           title: Provider Config Id
         is_default:
           anyOf:
             - type: boolean
-            - type: 'null'
+            - type: "null"
           title: Is Default
       type: object
       required:
@@ -4071,7 +3915,7 @@ components:
       properties:
         llm_configs:
           items:
-            $ref: '#/components/schemas/LLMConfigResponse'
+            $ref: "#/components/schemas/LLMConfigResponse"
           type: array
           title: Llm Configs
         total:
@@ -4103,14 +3947,14 @@ components:
           type: string
           title: Api Key
         provider:
-          $ref: '#/components/schemas/LLMProvider'
+          $ref: "#/components/schemas/LLMProvider"
         provider_config_id:
           type: string
           title: Provider Config Id
         is_default:
           anyOf:
             - type: boolean
-            - type: 'null'
+            - type: "null"
           title: Is Default
         id:
           type: string
@@ -4122,23 +3966,23 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
       type: object
       required:
@@ -4159,14 +4003,14 @@ components:
           type: string
           title: Api Key
         provider:
-          $ref: '#/components/schemas/LLMProvider'
+          $ref: "#/components/schemas/LLMProvider"
         provider_config_id:
           type: string
           title: Provider Config Id
         is_default:
           anyOf:
             - type: boolean
-            - type: 'null'
+            - type: "null"
           title: Is Default
       type: object
       required:
@@ -4187,7 +4031,7 @@ components:
     LLMResponseEvalConfig-Input:
       properties:
         input_mapping:
-          $ref: '#/components/schemas/EvalInput-Input'
+          $ref: "#/components/schemas/EvalInput-Input"
         output_mapping:
           additionalProperties: true
           type: object
@@ -4197,7 +4041,7 @@ components:
     LLMResponseEvalConfig-Output:
       properties:
         input_mapping:
-          $ref: '#/components/schemas/EvalInput-Output'
+          $ref: "#/components/schemas/EvalInput-Output"
         output_mapping:
           additionalProperties: true
           type: object
@@ -4268,7 +4112,7 @@ components:
         archived_at:
           anyOf:
             - type: integer
-            - type: 'null'
+            - type: "null"
           title: Archived At
         status:
           type: string
@@ -4309,7 +4153,7 @@ components:
           title: Project Name
         api_keys:
           items:
-            $ref: '#/components/schemas/OpenAIAPIKeyMetadata'
+            $ref: "#/components/schemas/OpenAIAPIKeyMetadata"
           type: array
           title: Api Keys
       type: object
@@ -4322,7 +4166,7 @@ components:
       properties:
         data:
           items:
-            $ref: '#/components/schemas/OpenAIProjectMetadata'
+            $ref: "#/components/schemas/OpenAIProjectMetadata"
           type: array
           title: Data
       type: object
@@ -4332,7 +4176,7 @@ components:
     OrgProviderConfigCreate:
       properties:
         provider:
-          $ref: '#/components/schemas/LLMProvider'
+          $ref: "#/components/schemas/LLMProvider"
         team_id:
           type: string
           title: Team Id
@@ -4342,8 +4186,8 @@ components:
           title: Admin Api Key
         usage_config:
           anyOf:
-            - $ref: '#/components/schemas/UsageConfigSchema'
-            - type: 'null'
+            - $ref: "#/components/schemas/UsageConfigSchema"
+            - type: "null"
       type: object
       required:
         - provider
@@ -4353,7 +4197,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/OrgProviderConfigResponse'
+            $ref: "#/components/schemas/OrgProviderConfigResponse"
           type: array
           title: Items
         skip:
@@ -4375,7 +4219,7 @@ components:
     OrgProviderConfigResponse:
       properties:
         provider:
-          $ref: '#/components/schemas/LLMProvider'
+          $ref: "#/components/schemas/LLMProvider"
         team_id:
           type: string
           title: Team Id
@@ -4385,8 +4229,8 @@ components:
           title: Admin Api Key
         usage_config:
           anyOf:
-            - $ref: '#/components/schemas/UsageConfigSchema'
-            - type: 'null'
+            - $ref: "#/components/schemas/UsageConfigSchema"
+            - type: "null"
         id:
           type: string
           title: Id
@@ -4397,23 +4241,23 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
       type: object
       required:
@@ -4425,7 +4269,7 @@ components:
     OrgProviderConfigUpdate:
       properties:
         provider:
-          $ref: '#/components/schemas/LLMProvider'
+          $ref: "#/components/schemas/LLMProvider"
         team_id:
           type: string
           title: Team Id
@@ -4435,8 +4279,8 @@ components:
           title: Admin Api Key
         usage_config:
           anyOf:
-            - $ref: '#/components/schemas/UsageConfigSchema'
-            - type: 'null'
+            - $ref: "#/components/schemas/UsageConfigSchema"
+            - type: "null"
       type: object
       required:
         - provider
@@ -4446,7 +4290,7 @@ components:
       properties:
         items:
           items:
-            $ref: '#/components/schemas/GetWorkflowResponse'
+            $ref: "#/components/schemas/GetWorkflowResponse"
           type: array
           title: Items
         total:
@@ -4460,12 +4304,12 @@ components:
     Policy:
       properties:
         title:
-          $ref: '#/components/schemas/PolicyTitle'
+          $ref: "#/components/schemas/PolicyTitle"
           description: The policy to evaluate.
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         threshold:
           type: number
@@ -4499,41 +4343,41 @@ components:
         parent_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Parent Id
         org_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Org Id
         parent:
           anyOf:
-            - $ref: '#/components/schemas/PromptFolderBase'
-            - type: 'null'
+            - $ref: "#/components/schemas/PromptFolderBase"
+            - type: "null"
         id:
           type: string
           title: Id
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         created_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
       type: object
       required:
@@ -4552,17 +4396,17 @@ components:
         parent_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Parent Id
         org_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Org Id
         parent:
           anyOf:
-            - $ref: '#/components/schemas/PromptFolderBase'
-            - type: 'null'
+            - $ref: "#/components/schemas/PromptFolderBase"
+            - type: "null"
       type: object
       required:
         - name
@@ -4575,12 +4419,12 @@ components:
         parent_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Parent Id
         org_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Org Id
       type: object
       required:
@@ -4597,7 +4441,7 @@ components:
         parent_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Parent Id
         org_id:
           type: string
@@ -4605,24 +4449,24 @@ components:
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         created_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
       type: object
       required:
@@ -4638,56 +4482,56 @@ components:
         parent_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Parent Id
         org_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Org Id
         parent:
           anyOf:
-            - $ref: '#/components/schemas/PromptFolderBase'
-            - type: 'null'
+            - $ref: "#/components/schemas/PromptFolderBase"
+            - type: "null"
         id:
           type: string
           title: Id
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         created_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
         subfolders:
           anyOf:
             - items:
-                $ref: '#/components/schemas/PromptFolderTree'
+                $ref: "#/components/schemas/PromptFolderTree"
               type: array
-            - type: 'null'
+            - type: "null"
           title: Subfolders
           default: []
         templates:
           anyOf:
             - items:
-                $ref: '#/components/schemas/PromptTemplateBasic'
+                $ref: "#/components/schemas/PromptTemplateBasic"
               type: array
-            - type: 'null'
+            - type: "null"
           title: Templates
           default: []
       type: object
@@ -4704,12 +4548,12 @@ components:
         name:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Name
         parent_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Parent Id
       type: object
       title: PromptFolderUpdate
@@ -4718,34 +4562,34 @@ components:
         template_name:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Template Name
         template_text:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Template Text
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         vulnerability_checks:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Vulnerability Checks
         prompt_gen_args:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Prompt Gen Args
         folder_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Folder Id
       type: object
       title: PromptTemplateBase
@@ -4763,7 +4607,7 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         org_id:
           type: string
@@ -4771,33 +4615,33 @@ components:
         folder_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Folder Id
         folder:
           anyOf:
-            - $ref: '#/components/schemas/PromptFolderResponse'
-            - type: 'null'
+            - $ref: "#/components/schemas/PromptFolderResponse"
+            - type: "null"
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         created_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
       type: object
       required:
@@ -4819,7 +4663,7 @@ components:
       properties:
         templates:
           items:
-            $ref: '#/components/schemas/PromptTemplateResponse'
+            $ref: "#/components/schemas/PromptTemplateResponse"
           type: array
           title: Templates
         total:
@@ -4834,7 +4678,7 @@ components:
         message:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Message
       type: object
       required:
@@ -4857,7 +4701,7 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         org_id:
           type: string
@@ -4865,45 +4709,45 @@ components:
         folder_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Folder Id
         folder:
           anyOf:
-            - $ref: '#/components/schemas/PromptFolderResponse'
-            - type: 'null'
+            - $ref: "#/components/schemas/PromptFolderResponse"
+            - type: "null"
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         created_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
         prompt_gen_args:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Prompt Gen Args
         vulnerability_checks:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Vulnerability Checks
       type: object
       required:
@@ -4917,51 +4761,51 @@ components:
         template_name:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Template Name
         template_text:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Template Text
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         vulnerability_checks:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Vulnerability Checks
         prompt_gen_args:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Prompt Gen Args
         folder_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Folder Id
         org_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Org Id
         id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Id
         template_embedding:
           anyOf:
             - items:
                 type: number
               type: array
-            - type: 'null'
+            - type: "null"
           title: Template Embedding
       type: object
       title: PromptTemplateUpdate
@@ -5015,26 +4859,26 @@ components:
         step_number:
           anyOf:
             - type: integer
-            - type: 'null'
+            - type: "null"
           title: Step Number
         step_name:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Step Name
         result:
           anyOf:
-            - $ref: '#/components/schemas/WorkflowStepResponse'
-            - type: 'null'
+            - $ref: "#/components/schemas/WorkflowStepResponse"
+            - type: "null"
         error:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error
         message:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Message
       type: object
       required:
@@ -5075,7 +4919,7 @@ components:
       properties:
         runs:
           items:
-            $ref: '#/components/schemas/SyntheticDataRunResponse'
+            $ref: "#/components/schemas/SyntheticDataRunResponse"
           type: array
           title: Runs
         total:
@@ -5122,17 +4966,17 @@ components:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Extracted Metadata
         error:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error
         retry_count:
           anyOf:
             - type: integer
-            - type: 'null'
+            - type: "null"
           title: Retry Count
         created_at:
           type: string
@@ -5142,7 +4986,7 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Updated At
       type: object
       required:
@@ -5253,7 +5097,7 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         start_node:
           type: string
@@ -5261,24 +5105,24 @@ components:
         nodes:
           additionalProperties:
             oneOf:
-              - $ref: '#/components/schemas/AgentCallNode-Input'
-              - $ref: '#/components/schemas/ExitNode'
+              - $ref: "#/components/schemas/AgentCallNode-Input"
+              - $ref: "#/components/schemas/ExitNode"
             discriminator:
               propertyName: type
               mapping:
-                agent_call: '#/components/schemas/AgentCallNode-Input'
-                exit: '#/components/schemas/ExitNode'
+                agent_call: "#/components/schemas/AgentCallNode-Input"
+                exit: "#/components/schemas/ExitNode"
           type: object
           title: Nodes
         edges:
           items:
-            $ref: '#/components/schemas/Edge'
+            $ref: "#/components/schemas/Edge"
           type: array
           title: Edges
         org_id:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Org Id
       type: object
       required:
@@ -5292,7 +5136,7 @@ components:
       properties:
         workflows:
           items:
-            $ref: '#/components/schemas/WorkflowExecResponse'
+            $ref: "#/components/schemas/WorkflowExecResponse"
           type: array
           title: Workflows
         total:
@@ -5336,18 +5180,18 @@ components:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Started At
         completed_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Completed At
         error:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error
         escalation_count:
           type: integer
@@ -5406,7 +5250,7 @@ components:
       properties:
         workflows:
           items:
-            $ref: '#/components/schemas/WorkflowRead'
+            $ref: "#/components/schemas/WorkflowRead"
           type: array
           title: Workflows
         total:
@@ -5441,7 +5285,7 @@ components:
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         start_node:
           type: string
@@ -5449,18 +5293,18 @@ components:
         nodes:
           additionalProperties:
             oneOf:
-              - $ref: '#/components/schemas/AgentCallNode-Output'
-              - $ref: '#/components/schemas/ExitNode'
+              - $ref: "#/components/schemas/AgentCallNode-Output"
+              - $ref: "#/components/schemas/ExitNode"
             discriminator:
               propertyName: type
               mapping:
-                agent_call: '#/components/schemas/AgentCallNode-Output'
-                exit: '#/components/schemas/ExitNode'
+                agent_call: "#/components/schemas/AgentCallNode-Output"
+                exit: "#/components/schemas/ExitNode"
           type: object
           title: Nodes
         edges:
           items:
-            $ref: '#/components/schemas/Edge'
+            $ref: "#/components/schemas/Edge"
           type: array
           title: Edges
         id:
@@ -5471,29 +5315,29 @@ components:
           title: Org Id
         status:
           anyOf:
-            - $ref: '#/components/schemas/WorkflowStatus'
-            - type: 'null'
+            - $ref: "#/components/schemas/WorkflowStatus"
+            - type: "null"
         created_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Created At
         created_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Created By
         last_updated_at:
           anyOf:
             - type: string
               format: date-time
-            - type: 'null'
+            - type: "null"
           title: Last Updated At
         last_updated_by:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Last Updated By
       type: object
       required:
@@ -5528,29 +5372,29 @@ components:
         started_at:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Started At
         completed_at:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Completed At
         error_message:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error Message
         input_data:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Input Data
         output_data:
           anyOf:
             - additionalProperties: true
               type: object
-            - type: 'null'
+            - type: "null"
           title: Output Data
       type: object
       required:
@@ -5582,42 +5426,42 @@ components:
           anyOf:
             - type: string
               minLength: 3
-            - type: 'null'
+            - type: "null"
           title: Name
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         nodes:
           anyOf:
             - additionalProperties:
                 oneOf:
-                  - $ref: '#/components/schemas/AgentCallNode-Input'
-                  - $ref: '#/components/schemas/ExitNode'
+                  - $ref: "#/components/schemas/AgentCallNode-Input"
+                  - $ref: "#/components/schemas/ExitNode"
                 discriminator:
                   propertyName: type
                   mapping:
-                    agent_call: '#/components/schemas/AgentCallNode-Input'
-                    exit: '#/components/schemas/ExitNode'
+                    agent_call: "#/components/schemas/AgentCallNode-Input"
+                    exit: "#/components/schemas/ExitNode"
               type: object
-            - type: 'null'
+            - type: "null"
           title: Nodes
         edges:
           anyOf:
             - items:
-                $ref: '#/components/schemas/Edge'
+                $ref: "#/components/schemas/Edge"
               type: array
-            - type: 'null'
+            - type: "null"
           title: Edges
         status:
           anyOf:
-            - $ref: '#/components/schemas/WorkflowStatus'
-            - type: 'null'
+            - $ref: "#/components/schemas/WorkflowStatus"
+            - type: "null"
         version:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Version
       type: object
       title: WorkflowUpdate
@@ -5637,10 +5481,3 @@ components:
         - last_run_time
         - next_run_time
       title: SortField
-  securitySchemes:
-    OAuth2PasswordBearer:
-      type: oauth2
-      flows:
-        password:
-          scopes: {}
-          tokenUrl: https://idp.dev.alignx.ai/realms/alignx/protocol/openid-connect/token
