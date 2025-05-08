@@ -19,26 +19,26 @@ paths:
 
         Returns:
             Evaluation results with policy scores and pass/fail status
-      operationId: evaluate_text_api_v1_0_evals_evaluate_post
+      operationId: evaluate_text
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/EvaluateTextRequest'
+              $ref: "#/components/schemas/EvaluateTextRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/EvaluateTextResponse'
-        '422':
+                $ref: "#/components/schemas/EvaluateTextResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
   /api/v1.0/evals/policies:
     get:
       tags:
@@ -52,14 +52,14 @@ paths:
 
         Returns:
             List of available policy names
-      operationId: get_available_policies_api_v1_0_evals_policies_get
+      operationId: get_available_policies
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AvailablePoliciesResponse'
+                $ref: "#/components/schemas/AvailablePoliciesResponse"
   /api/v1.0/evals/evaluate_csv:
     post:
       tags:
@@ -75,26 +75,26 @@ paths:
 
         Returns:
             Evaluation results for each row in the CSV file
-      operationId: evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post
+      operationId: bulk_evaluate_csv
       requestBody:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post'
+              $ref: "#/components/schemas/Body_evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/BulkEvaluateTextResponse'
-        '422':
+                $ref: "#/components/schemas/BulkEvaluateTextResponse"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
 components:
   schemas:
     AvailablePoliciesResponse:
@@ -113,7 +113,7 @@ components:
     Body_evaluate_csv_policies_api_v1_0_evals_evaluate_csv_post:
       properties:
         file_format:
-          $ref: '#/components/schemas/FileFormat'
+          $ref: "#/components/schemas/FileFormat"
         s3_url:
           type: string
           title: S3 Url
@@ -163,7 +163,7 @@ components:
           description: Ground truth or expected response
         policies:
           items:
-            $ref: '#/components/schemas/Policy'
+            $ref: "#/components/schemas/Policy"
           type: array
           title: Policies
       type: object
@@ -176,7 +176,7 @@ components:
         error:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Error
           description: Error message if evaluation failed
       additionalProperties: true
@@ -193,7 +193,7 @@ components:
       properties:
         detail:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: "#/components/schemas/ValidationError"
           type: array
           title: Detail
       type: object
@@ -201,12 +201,12 @@ components:
     Policy:
       properties:
         title:
-          $ref: '#/components/schemas/PolicyTitle'
+          $ref: "#/components/schemas/PolicyTitle"
           description: The policy to evaluate.
         description:
           anyOf:
             - type: string
-            - type: 'null'
+            - type: "null"
           title: Description
         threshold:
           type: number
